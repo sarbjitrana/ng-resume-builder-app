@@ -1,0 +1,19 @@
+<form [formGroup]="personalInfoForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+    <div class="mb-3">
+      <label for="name" class="form-label">Name:</label>
+      <input id="name" formControlName="name" class="form-control" required>
+    </div>
+  
+    <div class="mb-3">
+      <label for="email" class="form-label">Email:</label>
+      <input id="email" formControlName="email" type="email" class="form-control" required>
+    </div>
+  
+    <div class="mb-3">
+      <label for="phone" class="form-label">Phone:</label>
+      <input id="phone" formControlName="phone" type="tel" class="form-control" required>
+    </div>
+  
+    <button type="submit" class="btn btn-primary" [disabled]="!personalInfoForm.valid">Save</button>
+  </form>
+  

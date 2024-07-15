@@ -1,0 +1,30 @@
+<form [formGroup]="experienceForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+    <div formArrayName="experience">
+      <div *ngFor="let exp of experienceControls; let i = index" [formGroupName]="i" class="mb-3 border p-3">
+        <div class="mb-3">
+          <label for="company" class="form-label">Company:</label>
+          <input id="company" formControlName="company" class="form-control" required>
+        </div>
+  
+        <div class="mb-3">
+          <label for="position" class="form-label">Position:</label>
+          <input id="position" formControlName="position" class="form-control" required>
+        </div>
+  
+        <div class="mb-3">
+          <label for="startYear" class="form-label">Start Year:</label>
+          <input id="startYear" formControlName="startYear" type="number" class="form-control" required>
+        </div>
+  
+        <div class="mb-3">
+          <label for="endYear" class="form-label">End Year:</label>
+          <input id="endYear" formControlName="endYear" type="number" class="form-control" required>
+        </div>
+  
+        <button type="button" class="btn btn-danger" (click)="removeExperience(i)">Remove</button>
+      </div>
+    </div>
+    <button type="button" class="btn btn-secondary" (click)="addExperience()">Add Experience</button>
+    <button type="submit" class="btn btn-primary" [disabled]="!experienceForm.valid">Save</button>
+  </form>
+  

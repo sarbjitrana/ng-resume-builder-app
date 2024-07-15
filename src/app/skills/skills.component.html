@@ -1,0 +1,15 @@
+<form [formGroup]="skillsForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+    <div formArrayName="skills">
+      <div *ngFor="let skill of skillsControls; let i = index" [formGroupName]="i" class="mb-3 border p-3">
+        <div class="mb-3">
+          <label for="skill" class="form-label">Skill:</label>
+          <input id="skill" formControlName="skill" class="form-control" required>
+        </div>
+  
+        <button type="button" class="btn btn-danger" (click)="removeSkill(i)">Remove</button>
+      </div>
+    </div>
+    <button type="button" class="btn btn-secondary" (click)="addSkill()">Add Skill</button>
+    <button type="submit" class="btn btn-primary" [disabled]="!skillsForm.valid">Save</button>
+  </form>
+  

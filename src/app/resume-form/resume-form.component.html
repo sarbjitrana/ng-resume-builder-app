@@ -1,0 +1,15 @@
+<form [formGroup]="resumeForm" (ngSubmit)="onSubmit()">
+    <label for="name">Name:</label>
+    <input id="name" formControlName="name">
+  
+    <label for="email">Email:</label>
+    <input id="email" formControlName="email" type="email">
+  
+    <label for="phone">Phone:</label>
+    <input id="phone" formControlName="phone" type="tel">
+  
+    <!-- Add more fields for education, experience, skills, etc. -->
+  
+    <button type="submit" [disabled]="!resumeForm.valid">Submit</button>
+  </form>
+  
